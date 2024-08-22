@@ -5,9 +5,7 @@ DROP TRIGGER IF EXISTS update_quantity;
 CREATE TRIGGER update_quantity
 AFTER INSERT ON orders
 FOR EACH ROW
-BEGIN
 	UPDATE items
-	SET qauntity = qauntity - NEW.number
+	SET quantity = quantity - NEW.number
 	WHERE name = NEW.item_name;
-END;
 
