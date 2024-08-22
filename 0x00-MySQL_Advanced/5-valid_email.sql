@@ -6,5 +6,4 @@ CREATE TRIGGER reset_email;
 
 BEFORE UPDATE ON users
 UPDATE users
-FOR EACH ROW
-SET valid_email = 0;
+SET NEW.valid_email = 0;
