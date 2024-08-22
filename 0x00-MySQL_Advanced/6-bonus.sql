@@ -18,13 +18,13 @@ BEGIN
     END IF;
 
     -- Insert the score
-    INSERT INTO scores (user_id, project_id, score) 
+    INSERT INTO corrections (user_id, project_id, score) 
     VALUES (user_id, project_id, score);
 
     -- Update the total score
     UPDATE users
-    SET total_score = total_score + score
-    WHERE id = user_id;
+    SET average_score = average_score + score
+	WHERE id = user_id;
 END;
 //
 DELIMITER ;
