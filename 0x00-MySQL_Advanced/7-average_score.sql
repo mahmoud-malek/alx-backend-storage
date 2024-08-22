@@ -8,12 +8,12 @@ BEGIN
 
 	DECLARE total_score INT;
 	SELECT SUM(score) INTO total_score
-	FROM scores
+	FROM corrections
 	WHERE user_id = user_id;
 
 	DECLARE total_projects INT;
 	SELECT COUNT(project_id) INTO total_projects
-	FROM scores
+	FROM corrections
 	WHERE user_id = user_id;
 
 	DECLARE average_score DECIMAL(5,2);
