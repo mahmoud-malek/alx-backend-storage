@@ -2,13 +2,14 @@
 -- ComputeAverageScoreForUser that computes
 -- and stores the average score for a student. Note: An average score can be a decimal.
 
+DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
 DELIMITER $$
 CREATE PROCEDURE ComputeAverageScoreForUser (IN user_id INT)
 BEGIN
     
     DECLARE total_score INT;
     DECLARE total_projects INT;
-    DECLARE average_score DECIMAL(5,2);
+    DECLARE average_score DECIMAL(5,2);	
 
     -- Calculate the total score for the user
     SELECT SUM(score) INTO total_score
