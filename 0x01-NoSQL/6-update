@@ -1,6 +1,9 @@
-// a a script that adds a new attribute to a document in the collection school
+// updateDocuments.js
+// A script that adds a new attribute to a document in the collection school
+// The script should update only documents with name="Holberton school"
+// The update should add the attribute address with the value “972 Mission street”
 
-db.school.update(
+db.school.updateMany(
 	{
 		name: "Holberton school"
 	},
@@ -9,4 +12,4 @@ db.school.update(
 			address: "972 Mission street"
 		}
 	}
-)
+);
