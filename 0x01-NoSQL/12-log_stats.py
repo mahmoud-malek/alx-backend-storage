@@ -14,10 +14,11 @@ if __name__ == "__main__":
 
     # print methods
     print("Methods:")
-    print(f"method GET: {collection.count_documents({'method': 'GET'})}")
-    print(f"method POST: {collection.count_documents({'method': 'POST'})}")
-    print(f"method PUT: {collection.count_documents({'method': 'PUT'})}")
-    print(f"method PATCH: {collection.count_documents({'method': 'PATCH'})}")
-    print(f"method DELETE: {collection.count_documents({'method': 'DELETE'})}")
+    print(f"	method GET: {collection.count_documents({'method': 'GET'})}")
+    print(f"	method POST: {collection.count_documents({'method': 'POST'})}")
+    print(f"	method PUT: {collection.count_documents({'method': 'PUT'})}")
+    print(f"	method PATCH: {collection.count_documents({'method': 'PATCH'})}")
+    print(
+        f"	method DELETE: {collection.count_documents({'method': 'DELETE'})}")
     print(
         f"{collection.count_documents({'$and': [{'method' : 'GET'},{'path': '/status'}]})} status check")
