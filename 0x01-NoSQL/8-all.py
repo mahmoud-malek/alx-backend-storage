@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-""" list all documents in Python """
+""" list all documents in Python
+"""
 
 import pymongo
 
