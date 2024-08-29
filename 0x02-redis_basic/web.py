@@ -7,18 +7,10 @@ import requests
 from datetime import timedelta
 
 
+@cache
 def get_page(url: str) -> str:
-    """
-    It uses the requests module to obtain
-    the HTML content of a particular URL and returns it.
-    Args:
-        url (str): url whose content is to be fectched
-    Returns:
-        html (str): the HTML content of the url
-    """
-    r = redis.Redis()
-    key = "count:{}{}{}".format('{', url, '}')
-    r.incr(key)
-    res = requests.get(url)
-    r.setex(url, timedelta(seconds=10), res.text)
-    return res.text
+    """ Uses the requests module to obtain the HTML content of a web page """
+    redis = redis.Redis()
+    redis.set(f"count:{url}", requests.get(url).text)
+    redis.expire(f"count:{url}", timedelta(seconds=10))
+    return redis.get(f"count:{url}").decode('utf-8')
